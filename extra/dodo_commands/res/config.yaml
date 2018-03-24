@@ -1,0 +1,22 @@
+ROOT:
+  version: 1.0.0
+  src_dir: ${/ROOT/project_dir}/src
+  command_path:
+  - - ~/.dodo_commands
+    - default_commands/*
+  layers:
+  - ~/.dodo_commands/layers/*.yaml
+
+SSH:
+  key_name: id_vegtech_rsa
+  agent_docker_image: vegtech/ssh-agent
+
+DOCKER:
+  images:
+    base:
+      image: vegtech/salt
+      build_dir: ${/ROOT/src_dir}/docker
+
+DIAGNOSE:
+  src_dir: ${/ROOT/src_dir}/extra/dodo_commands/diagnose
+  output_dir: ${/ROOT/project_dir}/res/diagnose
